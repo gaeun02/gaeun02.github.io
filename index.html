@@ -1,38 +1,87 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <!-- JQuery Load -->
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZOcr+Rl90="
-      crossorigin="anonymous"
-    ></script>
-    <!-- CSS Load -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Van Gogh Inside</title>
+
+    <!-- Google Fonts 로드 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Jua&family=Playfair+Display:wght@600&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <!-- script.js Load -->
-    <script src="js/script.js"></script>
   </head>
   <body>
     <div class="container">
-      <!-- Starry Night -->
       <div class="image-container">
         <img src="Starry Night.jpg" alt="Starry Night" />
       </div>
-      <!-- Almond Blossom -->
-      <div class="image-container">
+
+      <div class="image-container almond-container">
         <img src="Almond Bloom.jpg" alt="Almond Blossom" />
+        <img
+          src="Almond1.png"
+          alt="Almond Flower Overlay"
+          class="almond-image"
+        />
+        <img src="Bunch.png" alt="Bunch Flower Overlay" class="bunch-image" />
       </div>
-      <!-- Sun Flower -->
-      <div class="image-container">
+
+      <div class="image-container sunflower-container">
         <img src="Sun Flower.jpg" alt="Sun Flower" />
+        <img
+          src="sunflower1.png"
+          alt="Sun Flower Bottom Overlay"
+          class="sunflower-overlay-bottom"
+        />
+        <img
+          src="sunflower2.png"
+          alt="Sun Flower Top Overlay"
+          class="sunflower-overlay-top"
+        />
+        <img
+          src="flowervase.png"
+          alt="Sun Flower Vase"
+          class="sunflower-vase-overlay"
+        />
       </div>
     </div>
 
-    <div class="font-image">
-      <img src="Font.png" alt="Van Gogh Inside Font" />
+    <div class="separator">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
     </div>
 
-    <p class="subtitle">Love, Vincent</p>
-    <button class="button">Make a Reservation</button>
+    <div class="title">
+      VAN<span class="space"> </span>GOGH<span class="space"> </span>INSIDE
+    </div>
+    <div class="subtitle">Love, Vincent</div>
+
+    <a class="frame-btn" href="#">
+      <span class="frame-btn__outline frame-btn__outline--tall">
+        <span class="frame-btn__line frame-btn__line--tall"></span>
+        <span class="frame-btn__line frame-btn__line--flat"></span>
+      </span>
+      <span class="frame-btn__outline frame-btn__outline--flat">
+        <span class="frame-btn__line frame-btn__line--tall"></span>
+        <span class="frame-btn__line frame-btn__line--flat"></span>
+      </span>
+      <span class="frame-btn__solid"></span>
+      <span class="frame-btn__text">make a reservation</span>
+    </a>
+
+    <div class="footer-text-left">
+      GROUNDSEESAW<br />
+      MYEONGDONG<br />
+      Production GROUNDSEESAW
+    </div>
+    <div class="footer-text-right">2024.05.03 OPENING</div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
