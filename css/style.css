@@ -1,67 +1,500 @@
+/* Sulat Rizal 폰트 정의 */
+@font-face {
+  font-family: "Sulat Rizal";
+  src: url("../SulatRizal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  background-color: #1c4246; /* 어두운 배경색 */
+  background-color: #1c4246;
   font-family: "Arial", sans-serif;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .container {
   display: flex;
+  width: 88%;
+  max-width: 1300px;
+  height: 70vh; /* 세로 크기를 그대로 유지 */
   justify-content: center;
-  gap: 30px; /* 이미지 간 간격 */
-  margin-top: 0px; /* 상단 여백 */
-  width: 100vw; /* 화면 너비 꽉 채움 */
+  gap: 10px; /* 이미지 사이 간격을 더 줄임 */
 }
 
 .image-container {
-  width: 28vw; /* 가로 크기 조정 */
-  height: 65vh; /* 세로 크기를 화면 높이에 맞춤 */
-  overflow: hidden; /* 이미지가 넘칠 때 잘라냄 */
+  flex: 1;
+  overflow: hidden;
+  height: 100%;
 }
 
 .image-container img {
+  width: 120%; /* 가로로만 확대 */
+  height: 100%; /* 세로는 그대로 유지 */
+  object-fit: cover;
+  object-position: center;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.line {
+  width: 300px;
+  height: 0.6px;
+  background-color: #98987e;
+}
+
+.diamond {
+  width: 7px;
+  height: 7px;
+  background-color: #98987e;
+  transform: rotate(45deg);
+  margin: 0 15px; /* 마름모와 라인 사이의 여백을 더 넓게 설정 */
+}
+
+.space {
+  margin-right: 5px; /* 원하는 여백 크기 */
+}
+
+/* 아래에서 위로 올라오는 애니메이션 정의 */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 75px;
+  color: #98987e;
+  font-weight: bold;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  letter-spacing: 5px;
+  animation: slide-up 0.75s ease-out forwards; /* 애니메이션 종료 후 유지 */
+
+  /* 그림자 효과 추가 */
+  text-shadow: 3px 3px 0 rgba(152, 152, 126, 0.5);
+}
+
+.subtitle {
+  font-family: "Sulat Rizal", cursive; /* Sulat Rizal 폰트 적용 */
+  font-size: 30px; /* 폰트 크기 조정 */
+  color: #98987e;
+  margin-top: 8px;
+  text-shadow: 0.5px 0 0 #98987e, -0.5px 0 0 #98987e, 0 0.5px 0 #98987e,
+    0 -0.5px 0 #98987e;
+}
+
+/* 새 버튼 스타일 */
+.frame-btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 13px 40px; /* 버튼을 얇고 길게 설정 */
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  position: relative;
+}
+
+.frame-btn__text {
+  color: #98987e;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 300ms ease;
+  position: relative;
+}
+
+.frame-btn:hover .frame-btn__text {
+  color: white;
+}
+
+.frame-btn__solid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  background-color: #98987e;
+  opacity: 0.2;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  transform-origin: 50%;
+  transform: scale(0.85);
+  opacity: 0;
+  transition: 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.frame-btn:hover .frame-btn__solid {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.frame-btn__outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.frame-btn__outline--tall {
+  margin: 0 5px;
+  width: calc(100% - 10px);
+  height: 100%;
+  overflow: hidden;
+}
+
+.frame-btn__outline--flat {
+  margin: 5px 0;
+  height: calc(100% - 10px);
+  width: 100%;
+  overflow: hidden;
+}
+
+.frame-btn__line {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 이미지 비율 유지하며 프레임을 꽉 채움 */
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-.title-image {
-  width: auto; /* 너비는 자동으로 조정 */
-  height: 150px; /* 필요에 맞게 높이 조정 */
-  margin-top: 40px; /* 상단 여백 */
-}
-.subtitle {
-  font-size: 25px;
-  color: #d8bfd8;
-  margin-bottom: 50px;
-}
-
-.button {
-  background-color: #c0c0c0;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-transform: uppercase;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+.frame-btn__line--tall::before,
+.frame-btn__line--tall::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0.8px;
+  height: 100%;
+  background-color: #98987e;
+  opacity: 0.4;
+  transition: transform 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center;
+  transform: scaleY(0);
 }
 
-.button:hover {
-  background-color: #696969;
-  color: #fff;
+.frame-btn__line--flat::before,
+.frame-btn__line--flat::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0.8px;
+  width: 100%;
+  background-color: #98987e;
+  transition: transform 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center;
+  transform: scaleX(0);
 }
 
-.font-image {
-  margin-top: 20px; /* 상단 여백 */
-  width: 50vw; /* 가로 너비를 뷰포트의 50%로 설정 */
-  height: auto; /* 세로 비율을 유지하여 자동 조정 */
+.frame-btn:hover .frame-btn__line--tall::before,
+.frame-btn:hover .frame-btn__line--tall::after {
+  transform: scaleY(1);
+  transition: transform 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.font-image img {
-  width: 120%;
-  height: auto; /* 이미지 비율을 유지하며 가로에 맞게 조정 */
+.frame-btn:hover .frame-btn__line--flat::before,
+.frame-btn:hover .frame-btn__line--flat::after {
+  transform: scaleX(1);
+  transition: transform 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.frame-btn__line--tall::before {
+  left: 0;
+}
+
+.frame-btn__line--tall::after {
+  right: 0;
+}
+
+.frame-btn__line--flat::before {
+  top: 0;
+}
+
+.frame-btn__line--flat::after {
+  bottom: 0;
+}
+
+/* 하단 왼쪽 텍스트 스타일 */
+.footer-text-left {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100; /* 얇은 폰트 굵기 */
+  font-size: 14px; /* 텍스트 크기 조정 */
+  color: #98987e; /* 폰트 색상 */
+  position: absolute;
+  bottom: 10px; /* 화면 하단에서의 거리 */
+  left: 20px; /* 화면 왼쪽 끝에서의 거리 */
+  line-height: 1.2; /* 줄 간격 */
+  text-align: left;
+}
+
+/* 하단 오른쪽 텍스트 스타일 */
+.footer-text-right {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100; /* 얇은 폰트 굵기 */
+  font-size: 14px; /* 텍스트 크기 조정 */
+  color: #98987e; /* 폰트 색상 */
+  position: absolute;
+  bottom: 10px; /* 화면 하단에서의 거리 */
+  right: 20px; /* 화면 오른쪽 끝에서의 거리 */
+  text-align: right;
+}
+.container {
+  display: flex;
+  width: 88%;
+  max-width: 1300px;
+  height: 70vh;
+  justify-content: center;
+  gap: 10px;
+}
+
+.image-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 기본 스타일 설정 생략 */
+
+.almond-container {
+  position: relative; /* 클릭한 위치 기준으로 꽃이 피도록 설정 */
+  overflow: hidden;
+}
+
+.bunch-image {
+  position: absolute;
+  top: -38%; /* almond-container 상단에 가까워지도록 */
+  right: -25%; /* almond-container 오른쪽에 더 밀착 */
+  width: 40%; /* 크기 조정 */
+  opacity: 0.8;
+  z-index: 2; /* 다른 요소 위에 배치 */
+  transform: rotate(45deg);
+}
+
+.almond-image {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+}
+
+/* 꽃잎의 크기를 줄이고, almond-container 안에서 자연스럽게 보이도록 조정 */
+.falling-petal,
+.falling-petal-back,
+.falling-petal-far,
+.falling-petal-front {
+  position: absolute;
+  top: -10%;
+  opacity: 1;
+  animation: fall linear infinite;
+  object-fit: contain;
+}
+
+/* 날아다니는 꽃잎 크기와 애니메이션 */
+.falling-petal {
+  position: absolute;
+  top: -10%;
+  max-width: 50px;
+  max-height: 50px;
+  opacity: 0.8;
+  animation: fall linear infinite;
+  object-fit: contain;
+}
+
+.falling-petal-back {
+  position: absolute;
+  top: -10%;
+  max-width: 30px; /* 더 작은 크기 */
+  max-height: 30px;
+  opacity: 0.5; /* 투명도를 높여서 더 뒤에 있는 느낌 */
+  animation: fall-back linear infinite;
+  object-fit: contain;
+}
+
+.falling-petal-far {
+  position: absolute;
+  top: -10%;
+  max-width: 40px; /* 더 큰 기본 크기 */
+  max-height: 40px;
+  opacity: 0.5;
+  animation: fall-far linear infinite;
+}
+
+.falling-petal-front {
+  position: absolute;
+  top: -10%;
+  max-width: 60px; /* 더 큰 기본 크기 */
+  max-height: 60px;
+  opacity: 0.9;
+  animation: fall-front linear infinite;
+}
+
+/* 앞쪽 꽃잎 애니메이션 */
+@keyframes fall {
+  0% {
+    transform: translateX(0) translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(10px) translateY(20vh) rotate(45deg);
+  }
+  50% {
+    transform: translateX(-10px) translateY(50vh) rotate(90deg);
+  }
+  75% {
+    transform: translateX(10px) translateY(70vh) rotate(135deg);
+  }
+  100% {
+    transform: translateX(-10px) translateY(100vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* 뒤쪽 꽃잎 애니메이션 */
+@keyframes fall-back {
+  0% {
+    transform: translateX(0) translateY(-10vh) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateX(-15px) translateY(20vh) rotate(-45deg);
+  }
+  50% {
+    transform: translateX(15px) translateY(50vh) rotate(-90deg);
+  }
+  75% {
+    transform: translateX(-15px) translateY(70vh) rotate(-135deg);
+  }
+  100% {
+    transform: translateX(15px) translateY(100vh) rotate(-180deg);
+    opacity: 0;
+  }
+}
+
+/* 새로운 멀리 있는 꽃잎 애니메이션 */
+@keyframes fall-far {
+  0% {
+    transform: translateX(0) translateY(-10vh) rotate(0deg);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateX(5px) translateY(30vh) rotate(30deg);
+  }
+  50% {
+    transform: translateX(-5px) translateY(60vh) rotate(60deg);
+  }
+  75% {
+    transform: translateX(5px) translateY(80vh) rotate(90deg);
+  }
+  100% {
+    transform: translateX(-5px) translateY(110vh) rotate(120deg);
+    opacity: 0;
+  }
+}
+
+/* 가장 앞쪽 꽃잎 애니메이션 */
+@keyframes fall-front {
+  0% {
+    transform: translateX(0) translateY(-10vh) rotate(0deg);
+    opacity: 0.9;
+  }
+  20% {
+    transform: translateX(15px) translateY(30vh) rotate(45deg);
+  }
+  40% {
+    transform: translateX(-15px) translateY(60vh) rotate(90deg);
+  }
+  60% {
+    transform: translateX(15px) translateY(80vh) rotate(135deg);
+  }
+  100% {
+    transform: translateX(-15px) translateY(110vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* 클릭 시 피어나는 꽃 크기와 애니메이션 */
+.flower-animation {
+  width: 2px; /* 클릭 시 나타나는 꽃의 작은 크기 */
+  height: 2px; /* 고정된 작은 크기 */
+  opacity: 0;
+  position: absolute;
+  animation: bloom 1.5s ease forwards;
+  transform-origin: center center; /* 중앙 기준 */
+}
+
+@keyframes bloom {
+  0% {
+    transform: scale(0.03); /* 처음 더 작게 시작 */
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.07); /* 중간에서 약간 커짐 */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1); /* 완전한 크기로 마무리 */
+    opacity: 1;
+  }
+}
+
+/* Sun Flower 이미지 컨테이너 기본 설정 */
+.image-container.sunflower-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sun Flower 이미지 - 배경처럼 컨테이너를 꽉 채움 */
+.image-container.sunflower-container img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Sun Flower 이미지 하단에 배치되는 오버레이 */
+.sunflower-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Sun Flower 이미지 상단에 배치되는 오버레이 */
+.sunflower-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+/* 꽃병 이미지를 Sun Flower 컨테이너 내부의 중앙 오른쪽에 배치 */
+.sunflower-vase-overlay {
+  position: absolute;
+  top: 50%; /* 컨테이너의 수직 중앙 */
+  left: 20%; /* 오른쪽으로 약간 치우침 */
+  transform: translate(0, -50%) scale(0.5); /* 수직 중앙 정렬 + 50% 크기로 축소 */
+  width: auto; /* width는 기본 값으로 */
+  max-width: none; /* 이미지 최대 크기 제한 해제 */
+  z-index: 3; /* 다른 레이어 위에 표시 */
+  object-fit: contain;
 }
